@@ -1,0 +1,7 @@
+{
+  "name": "polymer-api",
+  "short_name": "polymer-api",
+  "description": "Polymer API",
+  "start_url": "/",
+  "display": "standalone"
+}

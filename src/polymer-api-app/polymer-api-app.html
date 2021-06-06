@@ -1,0 +1,65 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="polymer-api-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      div {
+        background-color: cornflowerblue;
+        border-radius: 5px;
+        text-align: center;
+        width: 150px;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style: none;
+      }
+    </style>
+    <h2 class="title">Users list</h2>
+    <iron-ajax id="elajax" url="http://jsonplaceholder.typicode.com/users" handle-as="json" last-response="{{users}}">
+    </iron-ajax>
+    <div on-tap="search" on-click="showUsers">
+      <iron-icon icon="account-circle"></iron-icon>
+      <p>Show Users</p>
+    </div>
+    <ul>
+      <template is="dom-repeat" items="[[users]]">
+        <li>
+          <iron-icon icon="account-box"></iron-icon>[[item.name]] - [[item.email]]</iron-icon>
+        </li>
+      </template>
+    </ul>
+  </template>
+  <script>
+    class PolymerApiApp extends Polymer.Element {
+      static get is() {
+        return 'polymer-api-app';
+      }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'list',
+          }
+        };
+      }
+      constructor() {
+        super();
+      }
+      showUsers() {
+        this.$.elajax.generateRequest();
+      }
+    }
+
+    window.customElements.define(PolymerApiApp.is, PolymerApiApp);
+  </script>
+</dom-module>
