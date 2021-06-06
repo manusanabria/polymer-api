@@ -1,4 +1,14 @@
-# polymer-api
-API - Polymer 2
-# API con Polymer 2 / Polymer Ajax 2
+# API con Polymer 2
+
+_Ejemplo de consumo de un servicio utilizando Polymer 2 y iron-ajax 2.0_
+
+#Uso 
+
+_Instalación_
+
+```
+bower install
+```
+
+
 
